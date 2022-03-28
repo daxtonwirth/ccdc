@@ -8,17 +8,17 @@ High|Disable SMB1|Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
   
   
-  Other useful commands:
+## Other useful commands:
   
-  Services:
+* Services:
   Get-Service | ? {$_.Status -eq "Running"}
   
-  Remote firewall rules:
+* Remote firewall rules:
  Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
-  Inbound traffic
+* Inbound traffic
    Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
   
   
   
-  useful links:
+## useful links:
   https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
