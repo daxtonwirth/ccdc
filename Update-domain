@@ -1,0 +1,4 @@
+
+$COMPUTERS = Get-ADComputer -Filter * | % {$_.name} 
+
+Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {.\update.ps1}
