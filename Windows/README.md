@@ -1,3 +1,4 @@
+# Windows Hardening
 Priority|Task|Command
 --|--|--|
 High|Windows Defender + Firewall|
@@ -9,10 +10,6 @@ High|Disable SMB1|Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
   
   
 ## Other useful commands:
-  
-* Services:
-  Get-Service | ? {$_.Status -eq "Running"}
-  
 * Remote firewall rules:
  Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 * Inbound traffic
