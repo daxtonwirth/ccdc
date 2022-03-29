@@ -29,12 +29,12 @@ Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {COMMAND}
 ```
 
 ## Scoring 
-▪ Availability: Maintain high availability of your systems throughout
-▪ Injects: Completing assigned business tasks graded by the White Team
-▪ Social Engineering: students are expected to deal with social engineering measures appropriately.
-▪ Attacks: Preventing unauthorized access by the Red Team / network intrusion teams
-▪ Incident Reports: Documenting and remediating Red Team attacks
-▪ Change Reports: Documenting and notification of network changes
+* Availability: Maintain high availability of your systems throughout
+* Injects: Completing assigned business tasks graded by the White Team
+* Social Engineering: students are expected to deal with social engineering measures appropriately.
+* Attacks: Preventing unauthorized access by the Red Team / network intrusion teams
+* Incident Reports: Documenting and remediating Red Team attacks
+* Change Reports: Documenting and notification of network changes
   
 ## Useful commands:
 Reset remote session if not working well
