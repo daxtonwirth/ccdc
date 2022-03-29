@@ -1,21 +1,20 @@
 # Windows Hardening
-Priority|Task|Command
---|--|--|
-High|Windows Defender + Firewall|
-High|AD passwords|Set-ADAccountPassword -Identity <sAMAccountName> -Reset -NewPassword <password>
-High|Change local passwords|net user USER PASS
-High|Install Patches|
-High|Disable SMB1|Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 
 
-  
+1. Run the info scipt
+2. Run the updates script
+3. Disable user accounts https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
+
   
 ## Other useful commands:
 * Remote firewall rules:
- Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
-* Inbound traffic
-   Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
-  
-  
-  
-## useful links:
-  https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
+```
+Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
+```
+* Inbound traffic:
+```
+Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
+```  
+Search for files (useful in injects):
+```
+Get-ChildItem -Path D:\ -Recurse -ErrorAction SilentlyContinue -Filter *.txt
+```
