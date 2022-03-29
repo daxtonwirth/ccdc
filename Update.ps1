@@ -1,10 +1,9 @@
-https://docs.microsoft.com/en-us/powershell/scripting/learn/ps101/08-powershell-remoting?view=powershell-7.2 
-One-To-One Remoting: 
+# https://docs.microsoft.com/en-us/powershell/scripting/learn/ps101/08-powershell-remoting?view=powershell-7.2 
+# One-To-One Remoting: 
 # WinRM
 # Enter-PSSession COMPUTERNAME
 # Enable-PSRemoting # Winrm
-
-One-To-Many Remoting is invoke-command
+# One-To-Many Remoting is invoke-command
 
 # Get-Command -ParameterName ComputerName
 
@@ -19,6 +18,10 @@ start-service Windefend
 Update-MpSignature
 # Updates
 wuauclt /detectnow /updatenow
+
+# Deactivate guest account + admin
+net user Guest /active:NO
+# net user Administrator /active:NO
 
 
 
