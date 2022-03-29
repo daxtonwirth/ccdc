@@ -19,30 +19,29 @@ Get-ADDomain | Select-Object Name, dnsroot, userscontainer
 ```
 
 # User (DISABLE accounts)
-* Domain ADMIN members:
+## DOMAIN ADMINS:
 ```
-Get-ADGroupMember administrators
+Get-ADGroupMember Administrators
 ```
 * If there is someone that should NOT be there,
 ```
-Remove-AdGroupMember -Identity GROUPNAME -Members NAME
+Remove-AdGroupMember -Identity Administrators -Members NAME
 ```
-* DOMAIN USERS 
+## DOMAIN USERS 
 ```
 get-aduser -Filter * | sort name | Select-Object Name, enabled, DistinguishedName
 ```
 * Disable unneccessary users:
-https://docs.microsoft.com/en-us/powershell/module/activedirectory/disable-adaccount?view=windowsserver2022-ps
 ```
 Disable-ADAccount
 ```
-* Change PASSWORD
-It is better to change the important users passwords to update where they need and disable the regular user logins that are not needed. 
+## Change PASSWORD
+Determine which users are needed and change their passwords. Then disable users that are not needed. 
 ```
 Set-ADAccountPassword USERNAME
 ```
 
-Ad group info
+* Ad group info
 ```
 get-adgroup
 ```
@@ -50,5 +49,8 @@ get-adgroup
 
 
 ## Other possible useful commands
+```
 Remove-adcomputer
 Remove-aduser
+```
+https://docs.microsoft.com/en-us/powershell/module/activedirectory/disable-adaccount?view=windowsserver2022-ps
