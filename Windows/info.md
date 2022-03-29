@@ -16,13 +16,38 @@ Get-NetNeighbor | sort IPAddress | ? {$_.State -eq "Reachable" -or $_.State -eq 
 ```
 Get-NetTcpConnection | sort LocalPort | ? {$_.LocalPort -le 49000} | Group-Object LocalPort
 ```
+What services are listening:
+```
+netstat -anob
+```
+Figure out if a port is needed before blocking it (example):
+```
+New-NetFirewallRule -DisplayName "Block Outbound Port 80" -Direction Outbound -LocalPort 80 -Protocol TCP -Action Block
+```
+## Firewall
+```
+Get-NetFirewallProfile | Format-Table Name, Enabled
+```
+If not enabled, enable:
+```
+Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled True
+```
 ## ACTIVE USERS (consider using get-aduser for domain users)(CMD: net user)
 ```
 Get-LocalUser | ? {$_.enabled -eq "True"}
 ```
+Disable local admin account if not needed:
+```
+net user Administrator /active:NO
+```
 ## SMBv1
 ```
 Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol | Select-Object State
+Get-SmbServerConfiguration | Select-Object EnableSMB1Protocol, EnableSMB2Protocol
+```
+Disable SMBv1 if enabled:
+```
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 ## WinRM 
 ```
@@ -49,12 +74,20 @@ alternative: net start
 ```
 Get-Service | ? {$_.Status -eq "Running"} | sort Name
 ```
-
 Non-windows services
 ```
 Get-wmiobject win32_service | where { $_.Caption -notmatch "Windows" -and $_.PathName -notmatch "Windows" -and $_.PathName -notmatch "policyhost.exe" -and $_.Name -ne "LSM" -and $_.PathName -notmatch "OSE.EXE" -and $_.PathName -notmatch "OSPPSVC.EXE" -and $_.PathName -notmatch "Microsoft Security Client" } | ft
 ```
+If a service is not necessary, disable it:
+```
+Set-Service -Name "SERVICE-NAME" -Status stopped -StartupType disabled
+```
+
 ## Scheduled tasks
 ```
 Get-ScheduledTask | Sort-Object State , TaskName | % {if ($_.state -ne "Disabled") {$_}}
+```
+If malicious:
+```
+Disable-ScheduledTask -TaskName "SystemScan"
 ```
