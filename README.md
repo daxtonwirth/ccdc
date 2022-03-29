@@ -3,7 +3,7 @@
 Tasks:
 1. Scan network: nmap -sn -v <IP RANGE>
 2. Log onto machines and harden
-3. Turn off unnessesary services, remoting
+3. Turn off unnessesary services, remoting, remote desktop
 
 
 To run Powershell on CMD: 
