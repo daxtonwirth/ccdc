@@ -9,6 +9,7 @@ ifconfig
 
 Users:
 ```
+cat /etc/passwd
 who
 ```
 Replace # with the number of the user listed
@@ -17,7 +18,7 @@ pkill -9 -t pts/#
 ```
 Process
 ```
-ps
+ps auxf
 ```
 
 
