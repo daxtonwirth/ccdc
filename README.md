@@ -1,15 +1,16 @@
 # BlueTeam
 
 ## Tasks:
-* Scan network: nmap -sn -v <IP RANGE>
-* Address Firewall/Router vulnerabilities 
-* Log onto machines and harden
-  a. Change passwords (Do not forget services like SQL)
-  b. Stop unnecessary services (remoting, remote desktop)
-  c. Update
-  d. Disable unused accounts (Do not delete them just in case)
-  e. Enable windows defender, firewall
-  f. Vuln scans + patch
+1. Scan network: nmap -sn -v <IP RANGE>
+2. Address Firewall/Router vulnerabilities 
+3. Log onto machines and harden
+* Change passwords (Do not forget services like SQL)
+* Stop unnecessary services (remoting, remote desktop)
+* Update
+* Disable unused accounts (Do not delete them just in case)
+* Enable windows defender, firewall
+* Vuln scans + patch
+4. Monitor
 
 
 To run Powershell on CMD: 
