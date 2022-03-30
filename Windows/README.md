@@ -9,6 +9,7 @@ Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Objec
 4. Disable accounts & change passwords:
 https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
 5. Monitor
+6. Remove Creds and PII from systems (txt, excel, img)
   
 ## Other useful commands:
 * Display information about sessions on a Remote Desktop Session Host server:
