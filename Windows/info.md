@@ -13,14 +13,19 @@ Get-NetNeighbor | sort IPAddress | ? {$_.State -eq "Reachable" -or $_.State -eq 
 ```
 
 ## PORTS
+Quick edition:
 ```
 Get-NetTcpConnection | sort LocalPort | ? {$_.LocalPort -le 49000} | Group-Object LocalPort
 ```
-What services are listening:
+All-encompassing edition (including service names):
+```
+get-nettcpconnection | select local*,remote*,state,@{Name="Process";Expression={(Get-Process -Id $_.OwningProcess).ProcessName}} | sort localport | ft
+```
+old method with netstat:
 ```
 netstat -anob
 ```
-Figure out if a port is needed before blocking it (example):
+Figure out if a port AND if you can disable the service. Last resort: block it (example):
 ```
 New-NetFirewallRule -DisplayName "Block Outbound Port 80" -Direction Outbound -LocalPort 80 -Protocol TCP -Action Block
 ```
