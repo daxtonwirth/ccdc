@@ -40,13 +40,14 @@ Determine which users are needed and change their passwords. Then disable users 
 Set-ADAccountPassword USERNAME
 ```
 
-* Ad group info
+## Ad group info
+Group names for further enumeration with "Get-ADGroupMember"
 ```
 get-adgroup -Filter * | Select-Object Name, GroupScope, GroupCategory, DistinguishedName | sort name |ft
 ```
 
 
-## Other possible useful commands
+## Other related commands
 ```
 Remove-adcomputer
 Remove-aduser
