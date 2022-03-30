@@ -1,14 +1,14 @@
 # Windows Hardening
-
 1. Map network for Domain Computer names and IPs. Once you get a windows machine, run this command to get others on domain: 
 ```
 Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
 ```
-2. Run the info scipt
-3. Run the change script
-4. Disable accounts & change passwords:
+2. Run the info scripts (info.ps1, domain-info.ps1)
+3. Run the change script (change.ps1)
+4. Disable accounts & change passwords (domain.md):
 https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
-5. Remove Creds and PII from systems (txt, excel, img, config files)
+5. Record and Remove Creds and PII from systems (txt, excel (.xlsx), config files, img, etc.)
+Search for files: "Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt"
 6. Monitor
   
 ## Other useful commands:
@@ -16,16 +16,17 @@ https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-a
 ```
 qwinsta
 ```
-### KILL SESSION 
-(get ID)
+## KILL SESSION 
+It is encouraged NOT to play whack-a-mole: patch the hole then boot
+* Get ID
 ```
 qwinsta /server:<NAME>
 ```
-Kill ID
+* Kill session with ID
 ```
 rwinsta /server:<NAME> <ID>
 ```
-### Search for files 
+## Search for files 
 Watch for DLP (there are lots of creds laying around which are sometimes useful in other injects: protect them):
 ```
 Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt
@@ -39,8 +40,7 @@ Inbound traffic:
 Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 ```  
 
-
-## PrivEsc auto enumeration scripts
+### PrivEsc auto enumeration scripts
 * WinPEAS
 https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
 * PowerUp.ps1
