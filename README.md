@@ -46,6 +46,7 @@ reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
   
   
 ## Useful sites:
-https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
-https://github.com/jordanpotti/ccdc
-https://sites.google.com/site/howtoccdc/tips
+* https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
+* https://github.com/jordanpotti/ccdc
+* https://sites.google.com/site/howtoccdc/tips
+* https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/web-application-defenders-cookbook-ccdc-blue-team-cheatsheet/
