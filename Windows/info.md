@@ -68,7 +68,7 @@ get-service winrm
 ```
 Disable if not using: 
 ```
-stop-service winrm
+set-service winrm -Status Stopped -StartupType Disabled
 ```
 ## Windows Defender 
 ```
@@ -77,7 +77,7 @@ Get-MpPreference | Select-Object DisableRealtimeMonitoring
 ```
 Enable if disabled:
 ```
-enable: start-service Windefend
+Set-Service -Name Windefend -Status Running -StartupType Automatic 
 set-MpPreference -DisableRealtimeMonitoring $False
 ```
 
