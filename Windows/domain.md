@@ -1,15 +1,12 @@
 # Computer
-ALL COMPUTERS, Put them in a variable:
+As stated before, get ALL COMPUTERS, Put them in a variable, run commands on them from that variable:
 ```
 get-adcomputer -Filter * | ft
 $COMPUTERS = Get-ADComputer -Filter * | % {$_.name} 
-```
-Run commands on them from that variable:
-```
 Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {COMMAND}
 ```
 
-* Domain controller info (name, ip)
+### Domain controller info (name, ip)
 ```
 Get-ADDomainController | Select-Object Name, OperatingSystem, ldapport, ipv4address
 ```
@@ -21,20 +18,22 @@ Get-ADDomain | Select-Object Name, dnsroot, userscontainer
 # User (DISABLE accounts)
 ## DOMAIN ADMINS:
 ```
-Get-ADGroupMember Administrators
-```
+Get-ADGroupMember administrators | Select-Object Name, objectclass, samaccountname | ft
+ ```
 * If there is someone that should NOT be there,
 ```
 Remove-AdGroupMember -Identity Administrators -Members NAME
 ```
+
 ## DOMAIN USERS 
 ```
-get-aduser -Filter * | sort name | Select-Object Name, enabled, DistinguishedName
+get-aduser -Filter * | sort name | Select-Object Name, enabled, objectclass, DistinguishedName
 ```
 * Disable unneccessary users:
 ```
 Disable-ADAccount
 ```
+
 ## Change PASSWORD
 Determine which users are needed and change their passwords. Then disable users that are not needed. 
 ```
@@ -43,9 +42,8 @@ Set-ADAccountPassword USERNAME
 
 * Ad group info
 ```
-get-adgroup
+get-adgroup -Filter * | Select-Object Name, GroupScope, GroupCategory, DistinguishedName | sort name |ft
 ```
-
 
 
 ## Other possible useful commands
