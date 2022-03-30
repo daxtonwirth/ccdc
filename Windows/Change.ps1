@@ -9,22 +9,24 @@ $COMPUTERS = Get-ADComputer -Filter * | % {$_.name}
 
 Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {
 
-
 Disable-PSRemoting
-stop-service winrm
+set-service winrm -Status Stopped -StartupType Disabled
 
-start-service Windefend
-Update-MpSignature
+# Start windows defender and change startup to auto 
+Set-Service -Name Windefend -Status Running -StartupType Automatic 
+# Enable firewall
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled True
 
 # Updates
+Install-Module PSWindowsUpdate 
+Get-WindowsUpdate -AcceptAll -Install -AutoReboot 
 wuauclt /detectnow /updatenow
+Update-MpSignature
 
-# Deactivate guest account + admin
+# Deactivate guest account
 net user Guest /active:NO
-# net user Administrator /active:NO
 
+#Turn off smb1
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-
 
 }
