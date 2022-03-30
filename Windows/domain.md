@@ -39,17 +39,18 @@ Determine which users are needed and change their passwords. Then disable users 
 ```
 Set-ADAccountPassword USERNAME
 ```
-
+---
 ## Ad group info
 Group names for further enumeration with "Get-ADGroupMember"
 ```
 get-adgroup -Filter * | Select-Object Name, GroupScope, GroupCategory, DistinguishedName | sort name |ft
 ```
 
-
-## Other related commands
+---
+### Other related commands
 ```
 Remove-adcomputer
+New-aduser
 Remove-aduser
 ```
 https://docs.microsoft.com/en-us/powershell/module/activedirectory/disable-adaccount?view=windowsserver2022-ps
