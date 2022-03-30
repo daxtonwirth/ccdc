@@ -1,13 +1,13 @@
 # BlueTeam
 
 ## Tasks:
-1. Scan network: nmap -sn -v <IP RANGE>
+1. Map network (nmap -sn -v <IP RANGE>)
 2. Address Firewall/Router vulnerabilities 
 3. Log onto machines and harden
+* Disable useless accounts (Do not delete them just in case)
 * Change passwords (Do not forget services like SQL)
 * Stop unnecessary services (remoting, remote desktop)
 * Update
-* Disable unused accounts (Do not delete them just in case)
 * Enable windows defender, firewall
 * Vuln scans + patch
 4. Monitor
@@ -42,8 +42,6 @@ Reset remote session if not working well
 ```
 reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 ```
-  
-  
   
 ## Useful sites:
 * https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
