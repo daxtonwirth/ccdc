@@ -16,11 +16,18 @@ Replace # with the number of the user listed
 ```
 pkill -9 -t pts/# 
 ```
-Process
+* Process
 ```
 ps auxf
 ```
+```
+pstree
+top
+```
 
+```
+ss -tl
+```
 
 Get failed logins
 ```
