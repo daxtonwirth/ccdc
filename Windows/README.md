@@ -1,15 +1,15 @@
 # Windows Hardening
 
-1. Get Domain Computer names and IPs: 
+1. Map network for Domain Computer names and IPs. Once you get a windows machine, run this command to get others on domain: 
 ```
 Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
 ```
 2. Run the info scipt
-3. Run the updates script
+3. Run the change script
 4. Disable accounts & change passwords:
 https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
-5. Monitor
-6. Remove Creds and PII from systems (txt, excel, img)
+5. Remove Creds and PII from systems (txt, excel, img, config files)
+6. Monitor
   
 ## Other useful commands:
 * Display information about sessions on a Remote Desktop Session Host server:
@@ -25,11 +25,12 @@ Kill ID
 ```
 rwinsta /server:<NAME> <ID>
 ```
-### Search for files and watch for DLP (there are lots of creds laying around which are sometimes useful in other injects: protect them):
+### Search for files 
+Watch for DLP (there are lots of creds laying around which are sometimes useful in other injects: protect them):
 ```
- Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt
+Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt
 ```
-* Remote firewall rules:
+### Remote firewall rules:
 ```
 Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 ```
@@ -46,7 +47,5 @@ https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
 ### Script ideas
-Powershell/python that checks # of users
-
-### Other ideas
-Account lockout policy
+* Powershell/python that checks # of users/new user
+* Account lockout policy
