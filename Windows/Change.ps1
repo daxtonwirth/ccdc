@@ -9,9 +9,6 @@ $COMPUTERS = Get-ADComputer -Filter * | % {$_.name}
 
 Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {
 
-Disable-PSRemoting
-set-service winrm -Status Stopped -StartupType Disabled
-
 # Start windows defender and change startup to auto 
 Set-Service -Name Windefend -Status Running -StartupType Automatic 
 # Enable firewall
@@ -28,5 +25,9 @@ net user Guest /active:NO
 
 #Turn off smb1
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+# Turn of ps remoting
+Disable-PSRemoting
+set-service winrm -Status Stopped -StartupType Disabled
 
 }
