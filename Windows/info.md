@@ -39,14 +39,19 @@ Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled True
 ```
 # ACTIVE USERS 
 consider using get-aduser for domain users (CMD: net user)
-* Active local users:
+### Active local users:
 ```
 Get-LocalUser | ? {$_.enabled -eq "True"}
 ```
-* Disable local users including admin account if not needed:
+### Disable local users including admin account if not needed:
 ```
 Disable-LocalUser
 net user Administrator /active:NO
+```
+### Change password of local accounts:
+Enter password after command
+```
+Set-LocalUser -name NAME -Password (Read-Host -AsSecureString)
 ```
 ## SMBv1
 ```
