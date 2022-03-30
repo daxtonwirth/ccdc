@@ -5,7 +5,7 @@ Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Objec
 ```
 ### 2. Run the info scripts (info.ps1, domain-info.ps1)
 ### 3. Run the change script (change.ps1)
-### 4. Disable local AND domain accounts & change passwords (info.md AND domain.md):
+### 4. Disable local AND domain accounts OR change passwords (info.md AND domain.md):
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/info.md#active-users
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
 ### 5. Discover and disable unused services, changed necessary service passwords (info.md):
