@@ -11,6 +11,7 @@ Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {
 
 # Start windows defender and change startup to auto 
 Set-Service -Name Windefend -Status Running -StartupType Automatic 
+set-MpPreference -DisableRealtimeMonitoring $False
 # Enable firewall
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled True
 
