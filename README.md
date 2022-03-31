@@ -15,7 +15,10 @@
 
 To run Powershell on CMD: 
 ```
-pwsh
+powershell -ep bypass # execution bypass
+```
+```
+pwsh # normal
 ```
 Install PowerShell if not installed:
 ```
