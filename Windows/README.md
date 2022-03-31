@@ -49,6 +49,9 @@ Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 ```
 (Get-PSReadlineOption).HistorySavePath
 ```
+## Powershell cheatsheet
+https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
+---
 ### PrivEsc auto enumeration scripts
 * WinPEAS
 https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
