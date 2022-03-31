@@ -45,7 +45,10 @@ Group names for further enumeration with "Get-ADGroupMember"
 ```
 get-adgroup -Filter * | Select-Object Name, GroupScope, GroupCategory, DistinguishedName | sort name |ft
 ```
-
+## GPO info
+```
+get-gpo -all | Select-Object displayname, domainname, owner,gpostatus, description, id | ft
+```
 ---
 ### Other related commands
 ```
