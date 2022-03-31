@@ -22,3 +22,9 @@ Get-ADGroupMember administrators | Select-Object Name, objectclass, samaccountna
 "Users"
 get-aduser -Filter * | sort name | Select-Object Name, enabled, objectclass, DistinguishedName
 "-----------------------------------------------------------------------------------------------"
+
+"-----------------------------------------------------------------------------------------------"
+"COMPUTERS (Use these for info.ps1 script for invoke command/remoting to get more info)"
+"-----------------------------------------------------------------------------------------------"
+Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
+"-----------------------------------------------------------------------------------------------"
