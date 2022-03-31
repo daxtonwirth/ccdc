@@ -43,8 +43,20 @@ Reset remote session if not working well
 reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 ```
   
+### Basic AD info
+* DC contains NTDS.dit - a database that contains all of the information of an Active Directory domain controller as well as password hashes for domain users and stored in %SystemRoot%\NTDS
+* forest is a collection of one or more domain trees inside of an Active Directory network
+* two default users: Administrator and guest
+1. Domain Admins - This is the big boss: they control the domains and are the only ones with access to the domain controller.
+2. Service Accounts (Can be Domain Admins) - These are for the most part never used except for service maintenance, they are required by Windows for services such as SQL to pair a service with a service account
+3. Local Administrators - These users can make changes to local machines as an administrator and may even be able to control other normal users, but they cannot access the domain controller
+4. Domain Users - These are your everyday users. They can log in on the machines they have the authorization to access and may have local administrator rights to machines depending on the organization.
+* Security Groups - These groups are used to specify permissions for a large number of users
+* Domain Computers group - All workstations and servers joined to the domain
+  
 ## Useful sites:
 * https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
 * https://github.com/jordanpotti/ccdc
 * https://sites.google.com/site/howtoccdc/tips
 * https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/web-application-defenders-cookbook-ccdc-blue-team-cheatsheet/
+* https://github.com/SouthwestCCDC/PS-CreateADLab
