@@ -61,5 +61,5 @@ https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
 ### Script ideas
-* Powershell/python that checks # of users/new user (get-localuser | select-object lastlogin)
+* Powershell/python that checks # of users/new user ( get-localuser | select-object Name, LastLogon)
 * Account lockout policy
