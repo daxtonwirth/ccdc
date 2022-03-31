@@ -14,7 +14,8 @@ Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Objec
 ### 6. Record and Remove Creds and PII from systems (txt, excel (.xlsx), service config files, img, etc.)
 * Search for files: "Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt"
 ### 7. Monitor
-  
+
+---
 ## Other useful commands:
 * Display information about sessions on a Remote Desktop Session Host server:
 ```
@@ -44,7 +45,10 @@ Inbound traffic:
 ```
 Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 ```  
-
+### History
+```
+(Get-PSReadlineOption).HistorySavePath
+```
 ### PrivEsc auto enumeration scripts
 * WinPEAS
 https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
