@@ -5,30 +5,35 @@
 # If running slow, reduce the overhead with sessions: $Cred = Get-Credential; $Session = New-PSSession -ComputerName dc01, sql02, web01 -Credential $Cred
 
 $COMPUTERS = Get-ADComputer -Filter * | % {$_.name} 
-
-
 Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {
 
-# Start windows defender and change startup to auto 
+"1. Start windows defender and change startup to auto"
 Set-Service -Name Windefend -Status Running -StartupType Automatic 
+"2. Enable real-time monitoring"
 set-MpPreference -DisableRealtimeMonitoring $False
-# Enable firewall
+
+"3. Enable firewall"
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled True
 
-# Updates
-Install-Module PSWindowsUpdate 
-Get-WindowsUpdate -AcceptAll -Install -AutoReboot 
-wuauclt /detectnow /updatenow
+"4. update antivirus signatures"
 Update-MpSignature
 
-# Deactivate guest account
+"5. Deactivate guest account"
 net user Guest /active:NO
 
-#Turn off smb1
+"6. Turn off smb1"
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
-# Turn of ps remoting
+"7. Updates with community module"
+Install-Module PSWindowsUpdate 
+Get-WindowsUpdate -AcceptAll -Install -AutoReboot 
+
+"8. Confirm updates using old method"
+wuauclt /detectnow /updatenow
+
+"9. Disable ps remoting"
 Disable-PSRemoting
+"10. Stop PS remoting"
 set-service winrm -Status Stopped -StartupType Disabled
 
 }
