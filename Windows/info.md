@@ -2,6 +2,14 @@
 ```
 Get-ComputerInfo | Select-Object CsName, OsName, OsVersion, CsDomainRole, OsArchitecture, OsNumberOfUsers, OsNumberOfProcesses, CsModel
 ```
+Computer name
+```
+$env:ComputerName
+```
+All environmental variables
+```
+gci env:* | sort-object name
+```
 ## IP
 ```
 Get-NetIPaddress | sort ifIndex | Select-Object ifIndex, IPAddress, InterfaceAlias | ? {$_.IPAddress -notmatch "169.254" -and $_.InterfaceAlias -notmatch "loopback" -and $_.IPAddress -notmatch "fe80"}
@@ -52,6 +60,10 @@ net user Administrator /active:NO
 Enter password after command
 ```
 Set-LocalUser -name NAME -Password (Read-Host -AsSecureString)
+```
+* Current user (whoami)
+```
+$env:UserName
 ```
 ## SMBv1
 ```
