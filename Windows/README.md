@@ -1,10 +1,10 @@
 # Windows Hardening
-### 1. Map network for Domain Computer names and IPs. Once you get a windows machine, run this command to get others on domain: 
-```
-Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
-```
-### 2. Run the info scripts (info.ps1, domain-info.ps1)
-### 3. Run the change script (change.ps1)
+### 1. Map Domain network for Domain Computer names and IPs. Once you get powershell, run "domain-info.ps1": 
+* https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain-info.ps1
+### 2. Run the info script on each computer (info.ps1)
+* https://github.com/daxtonwirth/prccdc/blob/main/Windows/info.ps1
+### 3. Run the change script (change.ps1). If you get an error for a certain task, it was not successful.
+* https://github.com/daxtonwirth/prccdc/blob/main/Windows/Change.ps1
 ### 4. Disable local AND domain accounts OR change passwords (info.md AND domain.md):
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/info.md#active-users
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain.md#user-disable-accounts
@@ -31,12 +31,14 @@ qwinsta /server:<NAME>
 ```
 rwinsta /server:<NAME> <ID>
 ```
+---
 ## Search for files 
 Watch for DLP (there are lots of creds laying around which are sometimes useful in other injects: protect them(txt, excel (.xlsx), service config files, img, etc.)):
 ```
 Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt
 Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.xlsx
 ```
+---
 ### Remote firewall rules:
 ```
 Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
@@ -49,7 +51,7 @@ Get-NetFirewallRule -DisplayGroup Remote* -Enabled True | ft
 ```
 (Get-PSReadlineOption).HistorySavePath
 ```
-## Powershell cheatsheet
+# Powershell cheatsheet
 https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993
 ---
 ### PrivEsc auto enumeration scripts
@@ -59,5 +61,5 @@ https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
 ### Script ideas
-* Powershell/python that checks # of users/new user
+* Powershell/python that checks # of users/new user (get-localuser | select-object lastlogin)
 * Account lockout policy
