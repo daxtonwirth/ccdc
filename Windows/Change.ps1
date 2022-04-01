@@ -36,4 +36,4 @@ Disable-PSRemoting
 "10. Stop PS remoting"
 set-service winrm -Status Stopped -StartupType Disabled
 
-}
+} | Tee-Object -file CHANGE-script.txt
