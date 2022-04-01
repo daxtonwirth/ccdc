@@ -13,7 +13,8 @@
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/info.md#ports
 ### 6. Record and Remove Creds and PII from systems (txt, excel (.xlsx), service config files, img, etc.)
 * Search for files: "Get-ChildItem -Path C:\Users -Recurse -ErrorAction SilentlyContinue -Filter *.txt"
-### 7. Monitor
+### 7. Run Vuln scans and harden
+### 8. Monitor
 
 ---
 ## Other useful commands:
