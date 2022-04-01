@@ -1,3 +1,5 @@
+Invoke-Command -ScriptBlock {
+
 "-----------------------------------------------------------------------------------------------"
 "DOMAIN NAME"
 Get-ADDomain | Select-Object Name, dnsroot, userscontainer
@@ -28,3 +30,5 @@ get-aduser -Filter * | sort name | Select-Object Name, enabled, objectclass, Dis
 "-----------------------------------------------------------------------------------------------"
 Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
 "-----------------------------------------------------------------------------------------------"
+
+} | Tee-Object -file COMPUTER-INFOMATION.txt
