@@ -1,5 +1,7 @@
-$COMPUTERS = Get-ADComputer -Filter * | % {$_.name} 
-Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {
+# $COMPUTERS = Get-ADComputer -Filter * | % {$_.name} 
+# Invoke-Command -ComputerName $COMPUTERS -ScriptBlock {}
+
+Invoke-Command -ScriptBlock {
 
 "COMP"
 Get-ComputerInfo | Select-Object CsName, OsName, OsVersion, CsDomainRole, WindowsRegisteredOwner, OsRegisteredUser, OsArchitecture, OsNumberOfUsers, OsNumberOfProcesses, OsMaxProcessMemorySize, CsModel
@@ -40,4 +42,5 @@ Get-NetFirewallProfile | Format-Table Name, Enabled
 "----------------------------------------------------------------------------------------------------------------------------"
 "Non-windows services"
 Get-wmiobject win32_service | where { $_.Caption -notmatch "Windows" -and $_.PathName -notmatch "Windows" -and $_.PathName -notmatch "policyhost.exe" -and $_.Name -ne "LSM" -and $_.PathName -notmatch "OSE.EXE" -and $_.PathName -notmatch "OSPPSVC.EXE" -and $_.PathName -notmatch "Microsoft Security Client" } | ft
-}
+
+} | Tee-Object -file COMPUTER-INFOMATION.txt
