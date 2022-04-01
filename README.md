@@ -9,8 +9,8 @@
 * Stop unnecessary services (remoting, remote desktop)
 * Update
 * Enable windows defender, firewall
-* Vuln scans + patch
-4. Monitor
+4. Vuln scans + patch
+5. Monitor
 
 ### Remoting Software
 https://mobaxterm.mobatek.net/
