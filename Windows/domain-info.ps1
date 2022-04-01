@@ -31,4 +31,4 @@ get-aduser -Filter * | sort name | Select-Object Name, enabled, objectclass, Dis
 Get-ADComputer -Filter * -Properties ipv4Address, OperatingSystem | Select-Object Name, IPv4Address, OperatingSystem, Enabled | ft
 "-----------------------------------------------------------------------------------------------"
 
-} | Tee-Object -file COMPUTER-INFOMATION.txt
+} | Tee-Object -file DOMAIN-INFOMATION.txt
