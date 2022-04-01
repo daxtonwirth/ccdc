@@ -12,6 +12,8 @@
 * Vuln scans + patch
 4. Monitor
 
+### Remoting Software
+https://mobaxterm.mobatek.net/
 
 To run Powershell on CMD: 
 ```
