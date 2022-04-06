@@ -38,3 +38,8 @@ Clear bash history:
 ```
 history -c && rm ~/.bash_history
 ```
+
+Firewall:
+```
+sudo ufw status
+```
