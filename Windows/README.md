@@ -1,5 +1,5 @@
 # Windows Hardening
-### 1. Map Domain network for Domain Computer names and IPs. Once you get powershell, run "domain-info.ps1": 
+### 1. Map Domain network for Domain Computer names and IPs. Once you get powershell, run "domain-info.ps1" if it is joined to the domain: 
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/domain-info.ps1
 ### 2. Run the info script on each computer (info.ps1)
 * https://github.com/daxtonwirth/prccdc/blob/main/Windows/info.ps1
