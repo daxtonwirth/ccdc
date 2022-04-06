@@ -109,3 +109,8 @@ https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 * New process script that checks and alerts of new processes
 * Account lockout policy
 
+## For next competition
+* what are we looking for in cron jobs?
+* Sticky keys exploit
+* work more with GPO
+* create windows monitoring documentation in this github
