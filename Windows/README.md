@@ -102,6 +102,8 @@ https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS
 * PowerUp.ps1
 https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1
 
+* https://www.netwrix.com/netwrix_change_notifier_for_active_directory.html
+
 ### Script ideas
 * Powershell/python that checks # of users/new user ( get-localuser | select-object Name, LastLogon)
 * New process script that checks and alerts of new processes
