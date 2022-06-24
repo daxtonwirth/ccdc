@@ -32,6 +32,7 @@ reset session {<sessionname> | <sessionID>} [/server:<servername>] [/v]
 ```
   
 ## Useful sites:
+* [**Popular Enumeration Scripts**](https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993)
 * https://gist.github.com/alexiasa/fba4466849fde5b9ec3dd3cd7d1b3e9f
 * https://github.com/jordanpotti/ccdc
 * https://sites.google.com/site/howtoccdc/tips
