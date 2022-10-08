@@ -68,35 +68,41 @@ sudo ufw status
 
 
 ## Other
+```
 sudo lsof -i :3306 (ls open files)
 which mysqld
 dpkg -S /usr/sbin/mysqld
 sudo apt purge SERVICE
-
+```
+```
 systemctl mask ctrl-alt-del.target 
 lastb- list of unsuccessful logins
-
+```
+```
 passwordless logins
 ssh-keygen on target machine
 ssh-copy-id to host machine
+```
+fail2ban- dynamically blocks ip addresses with certain number of failed logins
 
-fail2ban
-dynamically blocks ip addresses with certain number of failed logins
 /etc/fail2ban/jail.conf
 
+
 more info about user
+```
 net user USER
 net localgroup Administrators
-
+```
 Login information
+```
 sudo last -f /var/log/wtmp
 reboot   system boot  5.4.0-1029-aws   Tue Mar 29 17:28   still running
 reboot   system boot  5.4.0-1029-aws   Tue Mar 29 04:46 - 15:52  (11:05)
 reboot   system boot  5.4.0-1029-aws   Mon Mar 28 01:35 - 01:51 (1+00:16)
-
+```
 /var/log/auth.log
 
- lsblk -f shows file system type
+lsblk -f shows file system type
 
 adduser is better than useradd
 
